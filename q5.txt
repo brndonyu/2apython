@@ -1,0 +1,19 @@
+def increment_int_a(someval):
+    someval += 1
+def increment_int_b(someval):
+    someval[0] += 1
+def main():
+    a = 32
+    increment_int_a(a)
+    b = [32]
+    increment_int_b(b)
+
+
+1. Does the change inside increment_int_a change the variable a after the function call?
+2. Does the change inside increment_int_b change the variable b after the function call?
+3. If they differ answer why? if not why not?
+
+1. No
+2. Yes
+3. They differ because increment_int_a changes the passed value only within the scope of the function,
+while increment_int_b changes the value at an array index which has its own address.
