@@ -3,7 +3,7 @@ def top(arr):
     return arr[len(arr)-1]
 
 def isoperator(c):
-    if c == '+' or c == '-' or c == '*' or c == '^' or c == '/' or c == '//':
+    if c == '+' or c == '-' or c == '*' or c == '^' or c == '/' or c == '|':
         return True
 
 def isempty(arr):
@@ -15,7 +15,7 @@ def isempty(arr):
 def opprio(op):
     if op == '^':
         return 3
-    elif op == '*' or op == '/':
+    elif op == '*' or op == '/' or op =='|':
         return 2
     elif op == '+' or op == '-':
         return 1
@@ -28,11 +28,9 @@ def arithmetic(lhs, rhs, op):
     elif op == '*':
         return lhs * rhs
     elif op == '/':
-        quo = lhs / rhs
-        if quo.is_integer():
-            return int(quo)
-        return quo
-        
+        return lhs / rhs
+    elif op == '|':
+        return lhs // rhs    
     elif op == '+':
         return lhs + rhs
     elif op == '-':
@@ -56,8 +54,7 @@ def calculate(postfix):
 
 def calculator(input):
     input = input.replace('**','^')
-    input = input.replace('//','/')
-    print(input)
+    input = input.replace('//','|')
     stackchar = []      #stack to hold numbers
     op_stack = []       #stack to hold operators
     result_queue = []   #result
