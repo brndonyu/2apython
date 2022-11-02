@@ -55,9 +55,17 @@ def calculate(postfix):
 def calculator(input):
     input = input.replace('**','^')
     input = input.replace('//','|')
-    stackchar = []      #stack to hold numbers
-    op_stack = []       #stack to hold operators
-    result_queue = []   #result
+    input = input.replace('+-','+(0-1)*')
+    input = input.replace('--','-(0-1)*')
+    input = input.replace('*-','*(0-1)*')
+    input = input.replace('/-','/(0-1)*')
+    input = input.replace('|-','|(0-1)*')
+    input = input.replace('(-','(0-')
+    if input[0] == '-':
+        input = input.replace(input[0],'(0-1)*')
+    stackchar = [] 
+    op_stack = []       
+    result_queue = []   
     for i in input:
         if i.isnumeric():
             result_queue.append(i)
