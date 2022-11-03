@@ -16,4 +16,4 @@ def main():
 1. No
 2. Yes
 3. They differ because increment_int_a passes the value and only modifies it within the scope of the function,
-while increment_int_b passes someval[0] by reference to the array, which has its own address outside of the function, thus leading to it being different when we print it.
+while increment_int_b passes the list by reference to the function, changing the value by using the address of the list outside of the function.
