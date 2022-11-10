@@ -2,9 +2,8 @@ import time
 
 def timeme(func):
     def dec():
-        x = time.time()
+        start = time.time()
         func()
-        y = time.time()
-        print('Total time X: ')
-        print(y - x)
+        end = time.time()
+        print(f'Total time X: {end - start}')
     return dec
